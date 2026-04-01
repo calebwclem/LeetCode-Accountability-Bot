@@ -77,6 +77,15 @@ class Database:
             """, discord_id, server_id)
         return dict(row) if row else None
 
+    async def unregister_user(self, discord_id: int, server_id: int) -> bool:
+        """Delete a user from the database. Returns True if a row was deleted."""
+        async with self.pool.acquire() as conn:
+            result = await conn.execute("""
+                DELETE FROM users
+                WHERE discord_id = $1 AND server_id = $2;
+            """, discord_id, server_id)
+        return result == "DELETE 1"
+
     async def get_all_users_in_server(self, server_id: int) -> list[dict]:
         """Fetch all registered users in a server."""
         async with self.pool.acquire() as conn:

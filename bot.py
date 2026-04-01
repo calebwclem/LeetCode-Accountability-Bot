@@ -26,10 +26,10 @@ class LeetCodeBot(commands.Bot):
         await self.load_extension("cogs.registration")
         await self.load_extension("cogs.stats")
         await self.load_extension("cogs.leaderboard")
+        await self.load_extension("cogs.unregister")
 
         # Sync slash commands globally (use guild-specific sync for faster testing)
-        #await self.tree.sync()
-        await self.tree.sync(guild=discord.Object(id=1488805692633780324))
+        await self.tree.sync()
         print("Slash commands synced.")
 
     async def on_ready(self):
