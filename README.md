@@ -1,2 +1,3 @@
 # LeetCode-Accountability-Bot
-A Discord bot to keep people accountable with LeetCode
+
+Current goal: A Discord bot that tracks LeetCode streaks, posts leaderboards, and roasts people who miss their goals.
